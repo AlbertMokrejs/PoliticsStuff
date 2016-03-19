@@ -8,7 +8,7 @@ var csvRead = function(a){
     csvf.open("GET", a, true);
     csvf.onreadystatechange = function ()
     {
-        text = rawFile.responseText;
+        text = csvf.responseText;
         
     }
     var data = text.split(',');
