@@ -28,12 +28,12 @@ var makePartyData = function(data,b){
 republicans = makePartyData(processDels(republicans),statenames);
 democrats = makePartyData(processDels(democrats),statenames);
 
-d3.selectAll("#demtable")
-    .select("div")
+d3.select("#demtable")
+    .selectAll("div")
     .data(democrats)
     .enter()
-    .append("div")
-    .attr("class","bar");
+    .append("div");
+    //.attr("class","bar")
 d3.selectAll("#demtable")
     .select("div")
     .each( function(){
