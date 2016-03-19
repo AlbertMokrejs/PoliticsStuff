@@ -30,3 +30,11 @@ var makePartyData = function(data,b){
 republicans = makePartyData(republicans,statenames);
 democrats = makePartyData(democrats,statenames);
 
+d3.select("demtable")
+    .selectAll("div")
+    .data(democrats)
+    .enter()
+    .append("div")
+    .text( function(d) {return d["name"]} );
+    
+
