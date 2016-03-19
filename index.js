@@ -32,7 +32,8 @@ d3.select("demtable")
     .selectAll("div")
     .data(democrats)
     .enter()
-    .append("div:bar");
+    .append("div")
+    .attr("class","bar");
 d3.select("demtable")
     .selectAll("div")
     .each( function(){
