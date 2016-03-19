@@ -38,7 +38,7 @@ var makePartyData = function(a,b){
     return tmp;
 }
 
-//statenames = csvRead("");
-//republicans = makePartyData(processDels(""),statenames);
-//democrats = makePartyData(processDels(""),statenames);
+statenames = csvRead("http://l.facebook.com/l.php?u=http%3A%2F%2Fm.uploadedit.com%2Fba3u%2F1458387747690.txt&h=8AQGu-6Ps");
+republicans = makePartyData(processDels("http://m.uploadedit.com/ba3u/145838764444.txt"),statenames);
+democrats = makePartyData(processDels("http://m.uploadedit.com/ba3u/145838767012.txt"),statenames);
 
