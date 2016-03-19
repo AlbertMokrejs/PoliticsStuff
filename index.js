@@ -37,7 +37,7 @@ for(i = 0; i < republicans.length && i < democrats.length; i++){
 	tmp[i] = {};
 	tmp[i]["dem"] = democrats[i];
 	tmp[i]["rep"] = republicans[i];
-}
+};
 
 console.log(tmp);
 
