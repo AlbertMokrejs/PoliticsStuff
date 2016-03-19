@@ -28,13 +28,13 @@ var makePartyData = function(data,b){
 republicans = makePartyData(processDels(republicans),statenames);
 democrats = makePartyData(processDels(democrats),statenames);
 
-d3.select("#demtable")
+d3.selectAll("#demtable")
     .select("div")
     .data(democrats)
     .enter()
-    .append("div");
+    .append("div")
     .attr("class","bar");
-d3.select("#demtable")
+d3.selectAll("#demtable")
     .select("div")
     .each( function(){
         d3.select(this)
@@ -44,7 +44,7 @@ d3.select("#demtable")
         .append("span")
         .attr("class", function(d){return d;});
     });
-d3.select("#demtable")
+d3.selectAll("#demtable")
     .select("div")
     .each( function(d){
         d3.select(this).select("#left")
