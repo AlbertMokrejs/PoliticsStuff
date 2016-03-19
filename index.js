@@ -35,7 +35,7 @@ d3.selectAll("#demtable")
     .append("div");
     .attr("class","bar");
 d3.selectAll("#demtable")
-    .select("bar")
+    .select("div")
     .each( function(){
         d3.select(this)
         .select("span")
@@ -45,7 +45,7 @@ d3.selectAll("#demtable")
         .attr("class", function(d){return d;});
     });
 d3.selectAll("#demtable")
-    .select("bar")
+    .select("div")
     .each( function(d){
         d3.select(this).select("#left")
         .text(function(d){return d;});
