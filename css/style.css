@@ -1,1 +1,65 @@
+/*
+table, tr, td {
+    border: 2px solid black;
+}*/
+
+body {
+    background-image: url("pat.jpg");
+}
+table {
+   float: center;
+   align: center;
+   margin-left:auto;
+   margin-right:auto;
+   width:80%;
+   text-align:center;
+   background-color:rgba(255,255,255,.7);
+   padding: 40px;
+   margin-top: 5%;
+   table-layout:fixed;
+}
+
+th {
+    font-size:30px;
+}
+
+td {
+    width: 50%;
+}
+
+.bar {
+    height: 20px;
+    width: 60%; /* edit width to change reflect data */
+    background-color:gray;
+    margin:10px;
+    border: 1px solid #63656B;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 20px;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: "Lato", sans-serif;
+}
+
+#demtable > .bar {
+    background-color: #1C32D6;    
+    float: left;
+    margin-left:0;
+}
+
+#reptable > .bar {
+    background-color: #E03838;    
+    float:right;
+    margin-right:0;
+}
+
+.left {
+    float: left;
+}
+
+
+.right {
+    float: right;
+}
 

@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-<title>
-    Political Delegate Analysis!
-    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <head>
+    <title>
+      Political Delegate Analysis!
+    </title>
+
+    <script type="text/javascript" src="d3.v2.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-</title>
-<script type="text/javascript" src="d3.v2.min.js"></script>
-<script type="text/javascript" src="index.js"></script>
-</head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<body>
+  </head>
 
-<table style>
-  <tr>
-    <td id="repcircle">
-        //Republicans go here (circle graph)
-    </td>
-    <td id="demcircle">
-        //Democrats go here (circle graph)
-    </td>
-  </tr>
-  <tr>
-    <td id="reptable">
-        //Republicans go here
-    </td>
-    <td id="demtable">
-        //Democrats go here
-    </td>
-  </tr>
-</table>
+  <body>
+    
+    <table style>
+      <tr>
+	<td id="repcircle">
+          //Republicans go here (circle graph)
+	</td>
+	<td id="demcircle">
+          //Democrats go here (circle graph)
+	</td>
+      </tr>
+      <tr>
+	<th>
+
+	  Republicans
+	</th>
+	<th>
+	  Democrats
+	</th>
+      </tr> 
+      <tr>
+	<td id="reptable">
+	  
+	  <!-- Style testing 
+	       div width represents data -->
+	  <div class="bar"><span class="left">New York</span> <span class="right">50</span></div>
+	</td>
+
+	<td id="demtable">
+          
+	  <div class="bar" style="width:40%;"><span class="left">New York</span> <span class="right">30</span></div>
+	</td>
+      </tr>
+    </table>
 
     
-</body>
+  </body>
