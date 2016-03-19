@@ -1,3 +1,5 @@
+Content-Security-Policy: default-src 'self' m.uploadedit.com
+
 var statenames = [];
 var republicans = [];
 var democrats = [];
@@ -9,7 +11,6 @@ var csvRead = function(a){
     csvf.onreadystatechange = function ()
     {
         text = csvf.responseText;
-        
     }
     var data = text.split(',');
     return data;
