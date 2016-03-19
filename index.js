@@ -35,6 +35,6 @@ d3.select("demtable")
     .data(democrats)
     .enter()
     .append("div")
-    .text( function(d) {return d["name"]} );
+    .text( function(d) {return d["name"]; } );
     
 
