@@ -33,7 +33,7 @@ d3.selectAll("#demtable")
     .data(democrats)
     .enter()
     .append("div");
-    .attr("class","bar")
+    .attr("class","bar");
 d3.selectAll("#demtable")
     .select("#bar")
     .each( function(){
