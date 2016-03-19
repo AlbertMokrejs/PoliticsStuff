@@ -46,22 +46,22 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 	    .append("div")
 	    .attr("class", "bar rep")
 	    .style({width: function(d){
-		dels = d["rep"].dels["norm"] + d["rep"].dels["spec"] //these should be diffrentiated
+		dels = d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"] //these should be diffrentiated
 		return dels * 4 + "px" //should figure out better scale
 	    }, "background-color": function(d){
-	    	if (d["rep"].dels["norm"] < d["rep"].dels["spec"]){
+	    	if (d["rep"]["dels"]["norm"] < d["rep"]["dels"]["spec"]){
 	    		return "gray";
 	    	} else {
 	    		return "#3A63E8";
 	    	}
 	    }}).html(function(d) {
-	    	if (d["rep"].dels["norm"] > d["rep"].dels["spec"]){
-		var txt = "<span class='right'>" +(d["rep"].dels["norm"] + d["rep"].dels["spec"]) + 
-		    "</span>" + "<span class='left'>" + d["rep"].name +
+	    	if (d["rep"]["dels"]["norm"] > d["rep"]["dels"]["spec"]){
+		var txt = "<span class='right'>" +(d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["rep"]["name}"] +
 		    "</span>"; //the lazy way
 	    	} else {
-	    		var txt = "<span class='right'>" +(d["rep"].dels["norm"] + d["rep"].dels["spec"]) + 
-		    "</span>" + "<span class='left'>" + d["rep"].name + "(Unspent)" +
+	    		var txt = "<span class='right'>" +(d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["rep"]["name"] + "(Unspent)" +
 		    "</span>";
 	    	}
 		    return txt;
@@ -73,22 +73,22 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 	    .append("div")
 	    .attr("class", "bar dem")
 	    .style({width: function(d){
-		dels = d["dem"].dels["norm"] + d["dem"].dels["spec"] //these should be diffrentiated
+		dels = d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"] //these should be diffrentiated
 		return dels * 4 + "px" //should figure out better scale
 	    }, "background-color": function(d){
-	    	if (d["dem"].dels["norm"] < d["dem"].dels["spec"]){
+	    	if (d["dem"]["dels"]["norm"] < d["dem"]["dels"]["spec"]){
 	    		return "gray";
 	    	} else {
 	    		return "#3A63E8";
 	    	}
 	    }}).html(function(d) {
-	    	if (d["dem"].dels["norm"] > d["dem"].dels["spec"]){
-		var txt = "<span class='right'>" +(d["dem"].dels["norm"] + d["dem"].dels["spec"]) + 
-		    "</span>" + "<span class='left'>" + d["dem"].name +
+	    	if (d["dem"]["dels"]["norm"] > d["dem"]["dels"]["spec"]){
+		var txt = "<span class='right'>" +(d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["dem"]["name"] +
 		    "</span>"; //the lazy way
 	    	} else {
-	    		var txt = "<span class='right'>" +(d["dem"].dels["norm"] + d["dem"].dels["spec"]) + 
-		    "</span>" + "<span class='left'>" + d["dem"].name + "(Unspent)" +
+	    		var txt = "<span class='right'>" +(d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["dem"]["name"] + "(Unspent)" +
 		    "</span>";
 	    	}
 		    return txt;
