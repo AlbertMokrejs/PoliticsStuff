@@ -88,7 +88,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 	    }}).html(function(d) {
 	    	if (d["dem"]["dels"]["norm"] > d["dem"]["dels"]["spec"]){
 		var txt = "<span class='right'>" +(d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>" +
+		    "</span>" + "<span class='left'>"  +
 		    "</span>"; //the lazy way
 	    	} else {
 	    		var txt = "<span class='right'>" +(d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
@@ -96,7 +96,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 		    "</span>";
 	    	}
 		    return txt;
-	    });	
+	    });
 });
 
 
