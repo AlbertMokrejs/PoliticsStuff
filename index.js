@@ -9,7 +9,7 @@ var processDels = function(data){
     for(i = 0; i < data.length/2; i++){
         tmp[i] = {};
         tmp[i]["norm"] = data[1];
-        tmp[i]["spec"] = data[1 + data.length()/2];
+        tmp[i]["spec"] = data[1 + data.length/2];
     }
     return tmp;
 }
