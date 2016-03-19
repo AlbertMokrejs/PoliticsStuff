@@ -29,7 +29,7 @@ republicans = makePartyData(processDels(republicans),statenames);
 democrats = makePartyData(processDels(democrats),statenames);
 
 d3.selectAll("#demtable")
-    .selectAll("div")
+    .select("div")
     .data(democrats)
     .enter()
     .append("div");
