@@ -59,37 +59,26 @@ table.selectAll("tr").data(republicans).enter().append('tr').each(
 	    .style({width: function(d){
 		dels = d.dels["norm"] + d.dels["spec"] //these should be diffrentiated
 		return dels * 4 + "px" //should figure out better scale
+	    }, background-color: function(d){
+	    	if (d.dels["norm"] < d.dels["spec"]){
+	    		return "gray";
+	    	} else {
+	    		return "#3A63E8";
+	    	}
 	    }}).html(function(d) {
+	    	if (d.dels["norm"] > d.dels["spec"]){
 		var txt = "<span class='right'>" +(d.dels["norm"] + d.dels["spec"]) + 
 		    "</span>" + "<span class='left'>" + d.name +
 		    "</span>"; //the lazy way
+	    	} else {
+	    		var txt = "<span class='right'>" +(d.dels["norm"] + d.dels["spec"]) + 
+		    "</span>" + "<span class='left'>" + d.name + "(Unspent)" +
+		    "</span>";
+	    	}
 		    return txt;
 	    });	
 });
 
 
 
-/*
-d3.selectAll("#demtable")
-    .select("div")
-    .data(democrats)
-    .enter()
-    .append("div")
-    .attr("class","bar");
-d3.selectAll("#demtable")
-    .select("div")
-    .each( function(){
-        d3.select(this)
-        .select("span")
-        .data(["left","right"])
-        .enter()
-        .append("span")
-        .attr("class", function(d){return d;});
-    });
-d3.selectAll("#demtable")
-    .select("div")
-    .each( function(d){
-        d3.select(this).select("#left")
-        .text(function(d){return d;});
-    });
-*/
+
