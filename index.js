@@ -54,7 +54,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 	    .attr("class", "bar rep")
 	    .style({width: function(d){
 		dels = d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"] //these should be diffrentiated
-		return dels * 4 + "px" //should figure out better scale
+		return Math.floor(dels * 2.5) + "px" //should figure out better scale
 	    }, "background-color": function(d){
 	    	if (d["rep"]["dels"]["norm"] < d["rep"]["dels"]["spec"]){
 	    		return "gray";
@@ -68,7 +68,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 		    "</span>"; //the lazy way
 	    	} else {
 	    		var txt = "<span class='right'>" + (d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>" +  "(Unspent)" +
+		    "</span>" + "<span class='left'>" +
 		    "</span>";
 	    	}
 		    return txt;
@@ -84,7 +84,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 	    .attr("class", "bar dem")
 	    .style({width: function(d){
 		dels = d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"] //these should be diffrentiated
-		return dels * 4 + "px" //should figure out better scale
+		return Math.floor(dels * 2.5) + "px" //should figure out better scale
 	    }, "background-color": function(d){
 	    	if (d["dem"]["dels"]["norm"] < d["dem"]["dels"]["spec"]){
 	    		return "gray";
@@ -98,7 +98,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 		    "</span>"; //the lazy way
 	    	} else {
 	    		var txt = "<span class='right'>" + (d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>" +  "(Unspent)" +
+		    "</span>" + "<span class='left'>"  +
 		    "</span>";
 	    	}
 		    return txt;
