@@ -35,6 +35,8 @@ for(i = 0; i < republicans.length && i < democrats.length; i++){
 	tmp[i]["rep"] = republicans[i];
 }
 
+console.log(tmp);
+
 
 //Makes bars
 
@@ -61,7 +63,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 		    "</span>" + "<span class='left'>"  +
 		    "</span>"; //the lazy way
 	    	} else {
-	    		var txt = "<span class='right'>" +(d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
+	    		var txt = "<span class='right'>" + (d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
 		    "</span>" + "<span class='left'>" +  "(Unspent)" +
 		    "</span>";
 	    	}
@@ -87,11 +89,11 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 	    	}
 	    }}).html(function(d) {
 	    	if (d["dem"]["dels"]["norm"] > d["dem"]["dels"]["spec"]){
-		var txt = "<span class='right'>" +(d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>"  +
+		var txt = "<span class='right'>" + (d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
+		    "</span>" + "<span class='left'>" +
 		    "</span>"; //the lazy way
 	    	} else {
-	    		var txt = "<span class='right'>" +(d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
+	    		var txt = "<span class='right'>" + (d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
 		    "</span>" + "<span class='left'>" +  "(Unspent)" +
 		    "</span>";
 	    	}
