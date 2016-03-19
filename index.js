@@ -28,6 +28,21 @@ var makePartyData = function(data,b){
 republicans = makePartyData(processDels(republicans),statenames);
 democrats = makePartyData(processDels(democrats),statenames);
 
+table = d3.select("tbody")
+
+//republidcans
+table.selectAll("tr").data(republicans).enter().append('tr')
+    .append('td')
+    .append("div")
+    .attr("class", "bar rep")
+    .style({width: function(d){
+	return d.dels["norm"]+100 + "px";
+    }}).text(function(d) {
+	return d.name;
+    })
+
+//democrats
+
 d3.selectAll("#demtable")
     .select("div")
     .data(democrats)
@@ -50,6 +65,3 @@ d3.selectAll("#demtable")
         d3.select(this).select("#left")
         .text(function(d){return d;});
     });
-
-    
-//.text( function(d) {return d["name"]; } );

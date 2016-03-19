@@ -29,7 +29,6 @@ td {
 
 .bar {
     height: 20px;
-    width: 60%; /* edit width to change reflect data */
     background-color:gray;
     margin:10px;
     border: 1px solid #63656B;
@@ -54,6 +53,17 @@ td {
     margin-right:0;
 }
 
+.bar.dem  {
+    background-color: #1C32D6;    
+    float: left;
+    margin-left:0;
+}
+
+.bar.rep  {
+    background-color: #E03838;    
+    float:right;
+    margin-right:0;
+}
 .left {
     float: left;
 }
