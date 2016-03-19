@@ -17,7 +17,7 @@ var processDels = function(data){
 var makePartyData = function(data,b){
     var states = b;
     var tmp = [];
-    for(var i = 0; i < states.length && i < data.length; i++){
+    for(i = 0; i < states.length && i < data.length; i++){
         tmp[i] = {};
         tmp[i]["name"] = states[i];
         tmp[i]["dels"] = data[i];
@@ -28,6 +28,10 @@ var makePartyData = function(data,b){
 //stores delegates for each state
 republicans = makePartyData(processDels(republicans),statenames);
 democrats = makePartyData(processDels(democrats),statenames);
+console.log(democrats);
+console.log(republicans);
+
+
 var tmp = [];
 for(i = 0; i < republicans.length && i < democrats.length; i++){
 	tmp[i] = {};
