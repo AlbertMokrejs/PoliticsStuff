@@ -38,7 +38,7 @@ for(i = 0; i < republicans.length && i < democrats.length; i++){
 
 //Makes bars
 
-table = d3.select("tbody")
+table = d3.select("#maintable")
 table.selectAll("tr").data(tmp).enter().append('tr').each(
     function() { //in each tr add one td for rep and one td for dem
 
@@ -53,7 +53,7 @@ table.selectAll("tr").data(tmp).enter().append('tr').each(
 	    	if (d["rep"]["dels"]["norm"] < d["rep"]["dels"]["spec"]){
 	    		return "gray";
 	    	} else {
-	    		return "#3A63E8";
+	    		return "#E03838";
 	    	}
 	    }}).html(function(d) {
 	    	if (d["rep"]["dels"]["norm"] > d["rep"]["dels"]["spec"]){
