@@ -1,4 +1,19 @@
+/*
+table, tr, td {
+    border: 2px solid black;
+}*/
+table {
+   float: center;
+   align: center;
+   margin-left:auto;
+   margin-right:auto;
+   width:70%;
+   text-align:center;
+}
 
+td {
+    width: 50%;
+}
 
 .bar {
     height: 20px;
@@ -17,10 +32,14 @@
 
 #demtable > .bar {
     background-color: #1C32D6;    
+    float: left;
+    margin-left:0;
 }
 
 #reptable > .bar {
     background-color: #E03838;    
+    float:right;
+    margin-right:0;
 }
 
 .left {
