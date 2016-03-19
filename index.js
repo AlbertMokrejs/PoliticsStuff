@@ -35,6 +35,12 @@ d3.select("demtable")
     .data(democrats)
     .enter()
     .append("div")
+    
+    .selectAll("span")
+    .data(["left,right"])
+    
+    .append("span")
+    .attr("class","left")
     .text( function(d) {return d["name"]; } );
     
 
