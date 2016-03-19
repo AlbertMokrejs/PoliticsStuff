@@ -28,51 +28,67 @@ var makePartyData = function(data,b){
 //stores delegates for each state
 republicans = makePartyData(processDels(republicans),statenames);
 democrats = makePartyData(processDels(democrats),statenames);
+var tmp = [];
+for(i = 0; i < republicans.length && i < democrats.length; i++){
+	tmp[i]["dem"] = democrats[i];
+	tmp[i]["rep"] = republicans[i];
+}
+
 
 //Makes bars
 
 table = d3.select("tbody")
-table.selectAll("tr").data(republicans).enter().append('tr').each(
+table.selectAll("tr").data(tmp).enter().append('tr').each(
     function() { //in each tr add one td for rep and one td for dem
 
 	//republicans
-	d3.select(this)
-	    .append('td')
+	d3.select(this).append('td')
 	    .append("div")
 	    .attr("class", "bar rep")
 	    .style({width: function(d){
-		//these should be diffrentiated
-		dels = d.dels["norm"] + d.dels["spec"]
-		//should figure out better scale, maybe use % instead of px?
-		return dels * 4 + "px" 
+		dels = d["rep"].dels["norm"] + d["rep"].dels["spec"] //these should be diffrentiated
+		return dels * 4 + "px" //should figure out better scale
+	    }, "background-color": function(d){
+	    	if (d["rep"].dels["norm"] < d["rep"].dels["spec"]){
+	    		return "gray";
+	    	} else {
+	    		return "#3A63E8";
+	    	}
 	    }}).html(function(d) {
-		var txt = "<span class='left'>" +(d.dels["norm"] + d.dels["spec"]) + 
-		    "</span>" + "<span class='right'>" + d.name +
+	    	if (d["rep"].dels["norm"] > d["rep"].dels["spec"]){
+		var txt = "<span class='right'>" +(d["rep"].dels["norm"] + d["rep"].dels["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["rep"].name +
 		    "</span>"; //the lazy way
+	    	} else {
+	    		var txt = "<span class='right'>" +(d["rep"].dels["norm"] + d["rep"].dels["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["rep"].name + "(Unspent)" +
+		    "</span>";
+	    	}
 		    return txt;
-	    });
+	    });	
+	
 
 	//democrats
 	d3.select(this).append('td')
 	    .append("div")
 	    .attr("class", "bar dem")
 	    .style({width: function(d){
-		dels = d.dels["norm"] + d.dels["spec"] //these should be diffrentiated
+		dels = d["dem"].dels["norm"] + d["dem"].dels["spec"] //these should be diffrentiated
 		return dels * 4 + "px" //should figure out better scale
-	    }, background-color: function(d){
-	    	if (d.dels["norm"] < d.dels["spec"]){
+	    }, "background-color": function(d){
+	    	if (d["dem"].dels["norm"] < d["dem"].dels["spec"]){
 	    		return "gray";
 	    	} else {
 	    		return "#3A63E8";
 	    	}
 	    }}).html(function(d) {
-	    	if (d.dels["norm"] > d.dels["spec"]){
-		var txt = "<span class='right'>" +(d.dels["norm"] + d.dels["spec"]) + 
-		    "</span>" + "<span class='left'>" + d.name +
+	    	if (d["dem"].dels["norm"] > d["dem"].dels["spec"]){
+		var txt = "<span class='right'>" +(d["dem"].dels["norm"] + d["dem"].dels["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["dem"].name +
 		    "</span>"; //the lazy way
 	    	} else {
-	    		var txt = "<span class='right'>" +(d.dels["norm"] + d.dels["spec"]) + 
-		    "</span>" + "<span class='left'>" + d.name + "(Unspent)" +
+	    		var txt = "<span class='right'>" +(d["dem"].dels["norm"] + d["dem"].dels["spec"]) + 
+		    "</span>" + "<span class='left'>" + d["dem"].name + "(Unspent)" +
 		    "</span>";
 	    	}
 		    return txt;
