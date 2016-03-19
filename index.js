@@ -32,5 +32,23 @@ d3.select("demtable")
     .selectAll("div")
     .data(democrats)
     .enter()
-    .append("div")
-    .text( function(d) {return d["name"]; } );
+    .append("div:bar");
+d3.select("demtable")
+    .selectAll("div")
+    .each( function(){
+        d3.select(this)
+        .selectAll("span")
+        .data(["left","right"])
+        .enter()
+        .append("span")
+        .attr("class", function(d){return d;});
+    });
+d3.select("demtable")
+    .selectAll("div")
+    .each( function(d){
+        d3.select(this).select("left")
+        .text(function(d){return d;});
+    });
+
+    
+//.text( function(d) {return d["name"]; } );
