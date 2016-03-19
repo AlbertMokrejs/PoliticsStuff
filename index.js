@@ -29,13 +29,13 @@ republicans = makePartyData(processDels(republicans),statenames);
 democrats = makePartyData(processDels(democrats),statenames);
 
 d3.select("#demtable")
-    .select("div")
+    .selectAll("div")
     .data(democrats)
     .enter()
     .append("div")
     .attr("class","bar");
 d3.select("#demtable")
-    .select("div")
+    .selectAll("div")
     .each( function(){
         d3.select(this)
         .select("span")
@@ -45,7 +45,7 @@ d3.select("#demtable")
         .attr("class", function(d){return d;});
     });
 d3.select("#demtable")
-    .select("div")
+    .selectAll("div")
     .each( function(d){
         d3.select(this).select("#left")
         .text(function(d){return d;});
