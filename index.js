@@ -69,7 +69,7 @@ if(isDemocrat){
 } else {
 	var headerData = ["","Republicans (1,719/2,472)"];
 }
-table.append("thead").selectAll("th").data(headerData).enter).append('th').each(
+table.append("thead").selectAll("th").data(headerData).enter().append('th').each(
 	d3.select(this)
 		.text(function(d){return d;});
 	);
