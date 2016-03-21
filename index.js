@@ -33,7 +33,16 @@ var dScale = d3.scale.linear()
     .domain([0,d3.max(democrats)])
     .range([0, window.innerWidth * .4]);
 
-
+var repB = document.getElementById("repb");
+var demB = document.getElementById("demb");
+repB.addeventListener(click,function(e){
+	e.preventDefault();
+	isDemocrat = false;
+});
+demB.addeventListener(click,function(e){
+	e.preventDefault();
+	isDemocrat = true;
+});
 
 //stores delegates for each state
 democrats = makePartyData(processDels(democrats),statenames);
