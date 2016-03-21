@@ -150,3 +150,5 @@ var makeTable = function(isDemocrat){
 	    }
 	});
 };
+
+makeTable(true);
