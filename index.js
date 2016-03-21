@@ -27,11 +27,11 @@ var makePartyData = function(data,b){
 
 var rScale = d3.scale.linear()
     .domain([0,d3.max(republicans)])
-    .range([0, window.innerWidth * .4]);
+    .range([0, window.innerWidth * .35]);
 
 var dScale = d3.scale.linear()
     .domain([0,d3.max(democrats)])
-    .range([0, window.innerWidth * .4]);
+    .range([0, window.innerWidth * .35]);
 
 var repB = document.getElementById("repb");
 var demB = document.getElementById("demb");
@@ -128,7 +128,7 @@ var makeTable = function(isDemocrat){
 		    .attr("class", "bar dem")
 		    .style({width: function(d){
 			dels = d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"] //these should be diffrentiated
-			return Math.floor(dels * 2.5) + "px" //should figure out better scale
+			return dScale(dels) + "px" //should figure out better scale
 		    }, "background-color": function(d){
 	    		if (d["dem"]["dels"]["norm"] < d["dem"]["dels"]["spec"]){
 	    		    return "gray";
