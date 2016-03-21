@@ -38,11 +38,24 @@ var demB = document.getElementById("demb");
 repB.addEventListener("click",function(e){
     e.preventDefault();
     clearTable();
+    rScale = d3.scale.linear()
+    .domain([0,d3.max(republicans)])
+    .range([0, window.innerWidth * .35]);
+    dScale = d3.scale.linear()
+    .domain([0,d3.max(democrats)])
+    .range([0, window.innerWidth * .35]);
     makeTable(false);
+    
 });
 demB.addEventListener("click",function(e){
     e.preventDefault();
     clearTable();
+    rScale = d3.scale.linear()
+    .domain([0,d3.max(republicans)])
+    .range([0, window.innerWidth * .35]);
+    dScale = d3.scale.linear()
+    .domain([0,d3.max(democrats)])
+    .range([0, window.innerWidth * .35]);
     makeTable(true);
 });
 
