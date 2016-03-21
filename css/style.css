@@ -34,7 +34,7 @@ th {
     padding: 10px;
     float: left;
     margin-left:0;
-    color: black;
+    color: white;
     font-size: 12px;
     font-family: "Lato", sans-serif;
 }
@@ -55,3 +55,17 @@ th {
     float: right;
 }
 
+button {
+    padding:5px;
+    border-radius: 10px;
+    color: white;
+    margin:5px;
+}
+
+#repb {
+    background-color: #E03838;    
+}
+
+#demb {
+    background-color: #3A63E8;    
+}
