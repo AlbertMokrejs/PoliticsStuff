@@ -29,11 +29,11 @@ var makePartyData = function(data,b){
 
 var rScale = d3.scale.linear()
     .domain([0,d3.max(republicans)])
-    .range([0, window.innerWidth * 6]);
+    .range([0, window.innerWidth * .5]);
 
 var dScale = d3.scale.linear()
     .domain([0,d3.max(democrats)])
-    .range([0, window.innerWidth * 6]);
+    .range([0, window.innerWidth * .5]);
 
 var repB = document.getElementById("repb");
 var demB = document.getElementById("demb");
@@ -42,10 +42,10 @@ repB.addEventListener("click",function(e){
     clearTable();
     rScale = d3.scale.linear()
     .domain([0,d3.max(sreps)])
-    .range([0, window.innerWidth * 6]);
+    .range([0, window.innerWidth * .5]);
     dScale = d3.scale.linear()
     .domain([0,d3.max(sdems)])
-    .range([0, window.innerWidth * 6]);
+    .range([0, window.innerWidth * .5]);
     makeTable(false);
     
 });
@@ -54,10 +54,10 @@ demB.addEventListener("click",function(e){
     clearTable();
     rScale = d3.scale.linear()
     .domain([0,d3.max(sreps)])
-    .range([0, window.innerWidth * 6]);
+    .range([0, window.innerWidth * .5]);
     dScale = d3.scale.linear()
     .domain([0,d3.max(sdems)])
-    .range([0, window.innerWidth * 6]);
+    .range([0, window.innerWidth * .5]);
     makeTable(true);
 });
 
