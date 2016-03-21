@@ -27,11 +27,11 @@ var makePartyData = function(data,b){
 
 var rScale = d3.scale.linear()
     .domain([0,d3.max(republicans)])
-    .range([0, window.innerWidth * 7]);
+    .range([0, window.innerWidth * 6]);
 
 var dScale = d3.scale.linear()
     .domain([0,d3.max(democrats)])
-    .range([0, window.innerWidth * 7]);
+    .range([0, window.innerWidth * 6]);
 
 var repB = document.getElementById("repb");
 var demB = document.getElementById("demb");
@@ -40,10 +40,10 @@ repB.addEventListener("click",function(e){
     clearTable();
     rScale = d3.scale.linear()
     .domain([0,d3.max(republicans)])
-    .range([0, window.innerWidth * .35]);
+    .range([0, window.innerWidth * 6]);
     dScale = d3.scale.linear()
     .domain([0,d3.max(democrats)])
-    .range([0, window.innerWidth * .35]);
+    .range([0, window.innerWidth * 6]);
     makeTable(false);
     
 });
