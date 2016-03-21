@@ -65,13 +65,13 @@ table = d3.select("#maintable");
 //head
 
 if(isDemocrat){
-	var headerData = ["","Democrats (4,050/4,763)"];
+	var headerData = ["Democrats (4,050/4,763)"];
 } else {
-	var headerData = ["","Republicans (1,719/2,472)"];
+	var headerData = ["Republicans (1,719/2,472)"];
 }
 table.append("thead").selectAll("th").data(headerData).enter().append('th').each(
 	d3.select(this)
-		.text(function(d){return d;});
+		.text(headerData[0]);
 	);
 
 
