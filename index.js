@@ -27,11 +27,11 @@ var makePartyData = function(data,b){
 
 var rScale = d3.scale.linear()
     .domain([0,d3.max(republicans)])
-    .range([0, window.innerWidth * .35]);
+    .range([0, window.innerWidth * 7]);
 
 var dScale = d3.scale.linear()
     .domain([0,d3.max(democrats)])
-    .range([0, window.innerWidth * .35]);
+    .range([0, window.innerWidth * 7]);
 
 var repB = document.getElementById("repb");
 var demB = document.getElementById("demb");
