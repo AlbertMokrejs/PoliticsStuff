@@ -41,7 +41,7 @@ repB.addEventListener("click",function(e){
     e.preventDefault();
     clearTable();
     rScale = d3.scale.linear()
-    .domain([0,d3.max(srems)])
+    .domain([0,d3.max(sreps)])
     .range([0, window.innerWidth * 6]);
     dScale = d3.scale.linear()
     .domain([0,d3.max(sdems)])
@@ -53,7 +53,7 @@ demB.addEventListener("click",function(e){
     e.preventDefault();
     clearTable();
     rScale = d3.scale.linear()
-    .domain([0,d3.max(srems)])
+    .domain([0,d3.max(sreps)])
     .range([0, window.innerWidth * 6]);
     dScale = d3.scale.linear()
     .domain([0,d3.max(sdems)])
