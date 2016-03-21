@@ -35,13 +35,15 @@ var dScale = d3.scale.linear()
 
 var repB = document.getElementById("repb");
 var demB = document.getElementById("demb");
-repB.addeventListener(click,function(e){
-	e.preventDefault();
-	isDemocrat = false;
+repB.addEventListener("click",function(e){
+    e.preventDefault();
+    clearTable();
+    makeTable(false);
 });
-demB.addeventListener(click,function(e){
-	e.preventDefault();
-	isDemocrat = true;
+demB.addEventListener("click",function(e){
+    e.preventDefault();
+    clearTable();
+    makeTable(true);
 });
 
 //stores delegates for each state
@@ -57,84 +59,94 @@ for(i = 0; i < republicans.length && i < democrats.length; i++){
 	tmp[i]["rep"] = republicans[i];
 };
 
+//removes all children of table
+var clearTable = function(){
+    d3.select("#maintable").selectAll("*").remove();
+};
 
-//Makes bars
 
+//Creates table header and bars
+var makeTable = function(isDemocrat){
+    table = d3.select("#maintable");
+    //head
 
-table = d3.select("#maintable");
-//head
-
-if(isDemocrat){
+    if(isDemocrat){
 	var headerData = ["Democrats (4,050/4,763)"];
-} else {
+    } else {
 	var headerData = ["Republicans (1,719/2,472)"];
-}
-table.append("thead").selectAll("th").data(headerData).enter().append('th').each(
-	d3.select(this)
-		.text(headerData[0]);
-	);
+    }
+
+    table.append("thead").append('tr')
+	.selectAll("th")
+	.data(headerData)
+	.enter().append('th')
+	.text( function(d) {
+	    return d;
+	});
 
 
-//body
-table.append("tbody").selectAll("tr").data(tmp).enter().append('tr').each(
-    function() { //in each tr add one td for rep and one td for dem
 
-	
+    //body
+    table.append("tbody").selectAll("tr").data(tmp).enter().append('tr').each(
+	function() { //in each tr add one td for rep and one td for dem
+
 	    
-	d3.select(this).append('td')
+	    
+	    d3.select(this).append('td')
 		.append("div")
 		.text(function(d){return d["dem"]["name"];});
-		
-	if(!isDemocrat){
-	d3.select(this).append('td')
-	    .append("div")
-	    .attr("class", "bar rep")
-	    .style({width: function(d){
-		dels = d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"] //these should be diffrentiated
-		return rScale(dels) + "px" //should figure out better scale
-	    }, "background-color": function(d){
-	    	if (d["rep"]["dels"]["norm"] < d["rep"]["dels"]["spec"]){
-	    		return "gray";
-	    	} else {
-	    		return "#E03838";
-	    	}
-	    }}).html(function(d) {
-	    	if (d["rep"]["dels"]["norm"] > d["rep"]["dels"]["spec"]){
-		var txt = "<span class='right'>" +(d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>"  +
-		    "</span>"; //the lazy way
-	    	} else {
-	    		var txt = "<span class='right'>" + (d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>" +
-		    "</span>";
-	    	}
-		    return txt;
-	    });	
-} else {
-	//democrats
-	d3.select(this).append('td')
-	    .append("div")
-	    .attr("class", "bar dem")
-	    .style({width: function(d){
-		dels = d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"] //these should be diffrentiated
-		return Math.floor(dels * 2.5) + "px" //should figure out better scale
-	    }, "background-color": function(d){
-	    	if (d["dem"]["dels"]["norm"] < d["dem"]["dels"]["spec"]){
-	    		return "gray";
-	    	} else {
-	    		return "#3A63E8";
-	    	}
-	    }}).html(function(d) {
-	    	if (d["dem"]["dels"]["norm"] > d["dem"]["dels"]["spec"]){
-		var txt = "<span class='right'>" + (d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>" +
-		    "</span>"; //the lazy way
-	    	} else {
-	    		var txt = "<span class='right'>" + (d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
-		    "</span>" + "<span class='left'>"  +
-		    "</span>";
-	    	}
-		    return txt;
-	    });
+	    
+	    if(!isDemocrat){
+		d3.select(this).append('td')
+		    .append("div")
+		    .attr("class", "bar rep")
+		    .style({width: function(d){
+			dels = d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"] //these should be diffrentiated
+			return rScale(dels) + "px" //should figure out better scale
+		    }, "background-color": function(d){
+	    		if (d["rep"]["dels"]["norm"] < d["rep"]["dels"]["spec"]){
+	    		    return "gray";
+	    		} else {
+	    		    return "#E03838";
+	    		}
+		    }}).html(function(d) {
+	    		if (d["rep"]["dels"]["norm"] > d["rep"]["dels"]["spec"]){
+			    var txt = "<span class='right'>" +(d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
+				"</span>" + "<span class='left'>"  +
+				"</span>"; //the lazy way
+	    		} else {
+	    		    var txt = "<span class='right'>" + (d["rep"]["dels"]["norm"] + d["rep"]["dels"]["spec"]) + 
+				"</span>" + "<span class='left'>" +
+				"</span>";
+	    		}
+			return txt;
+		    });	
+	    } else {
+		//democrats
+		d3.select(this).append('td')
+		    .append("div")
+		    .attr("class", "bar dem")
+		    .style({width: function(d){
+			dels = d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"] //these should be diffrentiated
+			return Math.floor(dels * 2.5) + "px" //should figure out better scale
+		    }, "background-color": function(d){
+	    		if (d["dem"]["dels"]["norm"] < d["dem"]["dels"]["spec"]){
+	    		    return "gray";
+	    		} else {
+	    		    return "#3A63E8";
+	    		}
+		    }}).html(function(d) {
+	    		if (d["dem"]["dels"]["norm"] > d["dem"]["dels"]["spec"]){
+			    var txt = "<span class='right'>" + (d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
+				"</span>" + "<span class='left'>" +
+				"</span>"; //the lazy way
+	    		} else {
+	    		    var txt = "<span class='right'>" + (d["dem"]["dels"]["norm"] + d["dem"]["dels"]["spec"]) + 
+				"</span>" + "<span class='left'>"  +
+				"</span>";
+	    		}
+			return txt;
+		    });
 	    }
-});
+	});
+};
