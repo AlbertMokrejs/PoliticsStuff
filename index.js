@@ -3,6 +3,8 @@ var republicans = [23,20,28,50,50,28,39,0,72,42,38,40,58,155,16,46,0,0,40,46,41,
 var democrats = [44,24,35,53,53,0,32,66,102,91,77,38,67,222,16,95,6,0,33,0,51,25,25,0,0,0,127,34,0,0,198,135,0,104,141,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,67,0,34,0,0,0,45,34,27,0,0,18,18,0,0,64,0,0,85,37,118,96,291,70,31,118,210,33,92,37,61,74,546,27,142,43,23,25];
 var isDemocrat = true;
 //to organize data
+var sdems = democrats;
+var sreps = republicans;
 
 var processDels = function(data){
     var tmp = [];
@@ -39,10 +41,10 @@ repB.addEventListener("click",function(e){
     e.preventDefault();
     clearTable();
     rScale = d3.scale.linear()
-    .domain([0,d3.max(republicans)])
+    .domain([0,d3.max(srems)])
     .range([0, window.innerWidth * 6]);
     dScale = d3.scale.linear()
-    .domain([0,d3.max(democrats)])
+    .domain([0,d3.max(sdems)])
     .range([0, window.innerWidth * 6]);
     makeTable(false);
     
@@ -51,11 +53,11 @@ demB.addEventListener("click",function(e){
     e.preventDefault();
     clearTable();
     rScale = d3.scale.linear()
-    .domain([0,d3.max(republicans)])
-    .range([0, window.innerWidth * .35]);
+    .domain([0,d3.max(srems)])
+    .range([0, window.innerWidth * 6]);
     dScale = d3.scale.linear()
-    .domain([0,d3.max(democrats)])
-    .range([0, window.innerWidth * .35]);
+    .domain([0,d3.max(sdems)])
+    .range([0, window.innerWidth * 6]);
     makeTable(true);
 });
 
