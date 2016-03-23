@@ -87,6 +87,40 @@ for(i = 0; i < republicans.length && i < democrats.length; i++){
 
 //sorts
 
+var sortByMost = function(isDemocrat){
+    var party;
+    if (isDemocrat){
+	party = "dem";
+    } else {
+	party = "rep";
+    }
+    for(var i = 1; i < tmp.length; i++){
+	if(tmp[i][party]["dels"]["spec"] + tmp[i][party]["dels"]["norm"]< tmp[i-1][party]["dels"]["spec"] + tmp[i-1][party]["dels"]["norm"]){
+	    var x = tmp[i]
+	    tmp[i] = tmp[i-1];
+	    tmp[i-1] = x;
+	    i = 1;
+	}
+    }
+}
+
+var sortByLeast = function(isDemocrat){
+    var party;
+    if (isDemocrat){
+	party = "dem";
+    } else {
+	party = "rep";
+    }
+    for(var i = 1; i < tmp.length; i++){
+	if(tmp[i][party]["dels"]["spec"] + tmp[i][party]["dels"]["norm"] > tmp[i-1][party]["dels"]["spec"] + tmp[i-1][party]["dels"]["norm"]){
+	    var x = tmp[i]
+	    tmp[i] = tmp[i-1];
+	    tmp[i-1] = x;
+	    i = 1;
+	}
+    }
+}
+
 var sortBySpent = function(isDemocrat){
     var party;
     if (isDemocrat){
